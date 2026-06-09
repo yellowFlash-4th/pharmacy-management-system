@@ -1,8 +1,10 @@
 import tkinter as tk
+import winsound
 from database import db
 from tkinter import ttk, messagebox
 from logic import get_status
 from utils import clear
+
 
 # ---------- SCAN + SELL ----------
 def scan_page(main):
@@ -131,7 +133,6 @@ def scan_page(main):
                 if status == "Expired" or qty <= 0:
                     import time
                     import threading
-                    from pygame import mixer
 
                     def play_perfect_beeps():
                         mixer.init()
@@ -186,6 +187,8 @@ def scan_page(main):
             frame = cv2.flip(frame, 1) 
             res = scanner.scan_from_frame(frame)
             if res:
+                winsound.Beep(2500, 100)
+
                 scanned_code = res
                 break
                 

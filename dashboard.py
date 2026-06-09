@@ -265,9 +265,8 @@ def dashboard(main):
 
         try:
             if exp_scroll_frame.winfo_exists() and near_scroll_frame.winfo_exists():
-                # main.after(30000, auto_scan)
-                pass
+                main.after(30000, auto_scan)
         except:
             pass
 
-        auto_scan()
+    auto_scan()
